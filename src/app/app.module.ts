@@ -10,6 +10,7 @@ import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component
 import { HomeComponent } from './pages/home/home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 
 
 
@@ -22,6 +23,7 @@ import { AboutComponent } from './pages/about/about.component';
     HomeComponent,
     ProyectosComponent,
     AboutComponent,
+    ProyectoComponent,
   ],
   imports: [
     BrowserModule,
