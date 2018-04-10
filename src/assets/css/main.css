@@ -6,7 +6,8 @@ body {
     background: url(../img/bodyBack.png);
 }
 
-#container {
+
+/* #container {
     background: #fff;
     margin: 40px auto;
     width: 880px;
@@ -18,7 +19,7 @@ body {
     box-shadow: 0 -5px 0 #efefef inset;
     -moz-box-shadow: 0 -5px 0 #efefef inset;
     -webkit-box-shadow: 0 -5px 0 #efefef inset;
-}
+} */
 
 
 /* ----------Header------------

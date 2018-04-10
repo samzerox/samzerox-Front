@@ -1,13 +1,22 @@
-body {
-    margin-bottom: 30px;
-}
-
 .img-construccion {
     width: 500px;
 }
 
 .img-chica {
     width: 300px;
+}
+
+#contenedor {
+    background: #fff;
+    margin: 0 auto;
+    width: 900px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    border-bottom: 7px solid;
+    box-shadow: 0 -5px 0 #efefef inset;
+    -moz-box-shadow: 0 -5px 0 #efefef inset;
+    -webkit-box-shadow: 0 -5px 0 #efefef inset;
 }
 
 
