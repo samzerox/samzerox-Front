@@ -6,17 +6,31 @@
     width: 300px;
 }
 
-#contenedor {
-    background: #fff;
-    margin: 0 auto;
-    width: 900px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    border-bottom: 7px solid;
-    box-shadow: 0 -5px 0 #efefef inset;
-    -moz-box-shadow: 0 -5px 0 #efefef inset;
-    -webkit-box-shadow: 0 -5px 0 #efefef inset;
+@media only screen and (min-width: 992px) {
+    .base {
+        background: url(assets/img/bodyBack.png);
+    }
+    .contenedor {
+        background: #fff;
+        margin: 0 auto;
+        width: 900px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        border-bottom: 7px solid;
+        box-shadow: 0 -5px 0 #efefef inset;
+        -moz-box-shadow: 0 -5px 0 #efefef inset;
+        -webkit-box-shadow: 0 -5px 0 #efefef inset;
+    }
+    .badge {
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .base {
+        text-align: center;
+    }
 }
 
 
@@ -56,10 +70,16 @@
     .card-columns {
         column-count: 4;
     }
+    .listas {
+        column-count: 3;
+    }
 }
 
 @media only screen and (max-width: 992px) and (min-width: 768px) {
     .card-columns {
+        column-count: 3;
+    }
+    .listas {
         column-count: 3;
     }
 }
@@ -68,10 +88,18 @@
     .card-columns {
         column-count: 2;
     }
+    .listas {
+        column-count: 2;
+        text-align: left;
+    }
 }
 
 @media only screen and (max-width: 576px) {
     .card-columns {
         column-count: 1;
+    }
+    .listas {
+        column-count: 1;
+        text-align: left;
     }
 }
