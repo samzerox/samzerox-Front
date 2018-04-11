@@ -99,6 +99,13 @@
         column-count: 1;
     }
     .listas {
+        column-count: 2;
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 478px) {
+    .listas {
         column-count: 1;
         text-align: left;
     }
