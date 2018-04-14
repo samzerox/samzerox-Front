@@ -12,6 +12,10 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 
+// Services
+import { UsuarioService } from './services/usuario/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -27,9 +31,12 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UsuarioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
