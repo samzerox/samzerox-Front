@@ -16,10 +16,10 @@ export class UsuarioService {
   }
 
   cargarUsuario() {
-    let url = URL_SERVICIOS + '/usuario';
+    let url = URL_SERVICIOS + '/usuario/5ad0f058a2f52fb5ef505095';
 
     return this.http.get( url )
-              .map( (resp: any) =>  resp.usuario[0]);
+              .map( (resp: any) =>  resp.usuario);
   }
 
 }
