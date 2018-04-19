@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProyectoService } from '../../services/proyecto/proyecto.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,11 +12,25 @@ export class ProyectoComponent implements OnInit {
 
   proyecto: any[] = [];
 
-  constructor() {
+  constructor(public _ps: ProyectoService,
+              public activatedRoute: ActivatedRoute) {
+
+                activatedRoute.params.subscribe( params => {
+
+                  let id = params['id'];
+                    this.cargarProyecto( id );
+                });
 
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  cargarProyecto(  id ) {
+    this._ps.cargarProyecto( id )
+                .subscribe( (resp: any) => {
+                  this.proyecto = resp;
+                  console.log(this.proyecto);
+                });
   }
 
 

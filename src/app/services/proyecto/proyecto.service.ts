@@ -22,5 +22,12 @@ export class ProyectoService {
               .map( (resp: any) => resp.proyecto);
   }
 
+  cargarProyecto( idx: string) {
+    let url = URL_SERVICIOS + '/proyecto/' + idx;
+
+    return this.http.get(url)
+              .map( (resp: any) => resp.proyecto);
+  }
+
 
 }
