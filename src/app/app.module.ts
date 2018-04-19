@@ -14,6 +14,7 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
+import { ProyectoService } from './services/proyecto/proyecto.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    ProyectoService
   ],
   bootstrap: [AppComponent]
 })

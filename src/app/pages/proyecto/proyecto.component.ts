@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-proyecto',
   templateUrl: './proyecto.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectoComponent implements OnInit {
 
-  constructor() { }
+  proyecto: any[] = [];
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
+
+
 
 }

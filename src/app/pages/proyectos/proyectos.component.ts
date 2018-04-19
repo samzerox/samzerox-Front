@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProyectoService } from '../../services/proyecto/proyecto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectosComponent implements OnInit {
 
-  constructor() { }
+  proyectos: any[] = [];
+
+  constructor( public _ps: ProyectoService,
+                public router: Router) {
+    this.cargarProyecto();
+   }
 
   ngOnInit() {
+  }
+
+  cargarProyecto() {
+    this._ps.cargarProyectos()
+                .subscribe( (resp: any) => {
+                  this.proyectos = resp;
+                  console.log(this.proyectos);
+                });
   }
 
 }
