@@ -1,15 +1,15 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3 animated fadeIn fast">
     <div class="row">
         <div class="col">
             <img class="img-fluid" src="../../../assets/img/cinema.png" alt="">
         </div>
     </div>
 </div>
-<div class="container mb-5">
+<div class="container mb-5 animated fadeIn fast">
 
     <div class="row mt-4">
         <div class="col text-center">
-            <h2 class="title"><u>{{proyecto.nombre}}</u></h2>
+            <h2 class="title"><u>{{ proyecto.nombre }}</u></h2>
         </div>
     </div>
 
@@ -30,32 +30,33 @@
     </div>
 
 
+    <div *ngFor="let ventana of proyecto.ventanas">
+        <h2 class="title">{{ventana.titulo}}</h2>
+        <div class="row mb-3">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
+                    <img class="img-fluid img-thumbnail" src="../../../assets/img/cinema.png" alt="">
+                </a>
+            </div>
 
-    <h2 class="title">Home</h2>
-    <div class="row mb-3">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
-                <img class="img-fluid img-thumbnail" src="../../../assets/img/cinema.png" alt="">
-            </a>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <p>
+                    {{ventana.descripcion}}
+                </p>
+            </div>
+
+
         </div>
-
-        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti odit! Dolore aperiam delectus illum sint natus quisquam. Voluptatem similique veritatis eum laboriosam suscipit accusamus animi, eaque tenetur inventore labore?
-            </p>
-        </div>
-
-
     </div>
 
-
+    <!-- 
     <hr>
 
     <h2 class="title">cartelera</h2>
 
-    <div class="row">
-        <!-- Desaparece cuando es mas pequeño que sm -->
-        <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
+    <div class="row"> -->
+    <!-- Desaparece cuando es mas pequeño que sm -->
+    <!-- <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti odit! Dolore aperiam delectus illum sint natus quisquam. Voluptatem similique veritatis eum laboriosam suscipit accusamus animi, eaque tenetur inventore labore?
             </p>
@@ -65,16 +66,16 @@
             <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
                 <img class="img-fluid img-thumbnail" src="../../../assets/img/cinema.png" alt="">
             </a>
-        </div>
+        </div> -->
 
-        <!-- Aparece cuando es mas pequeño que sm -->
-        <div class="col-sm-6 col-xs-12 d-sm-none">
+    <!-- Aparece cuando es mas pequeño que sm -->
+    <!-- <div class="col-sm-6 col-xs-12 d-sm-none">
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti odit! Dolore aperiam delectus illum sint natus quisquam. Voluptatem similique veritatis eum laboriosam suscipit accusamus animi, eaque tenetur inventore labore?
             </p>
         </div>
 
-    </div>
+    </div> -->
 
 
 

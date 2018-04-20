@@ -23,7 +23,6 @@ export class ProyectosComponent implements OnInit {
     this._ps.cargarProyectos()
                 .subscribe( (resp: any) => {
                   this.proyectos = resp;
-                  console.log(this.proyectos);
                 });
   }
 
