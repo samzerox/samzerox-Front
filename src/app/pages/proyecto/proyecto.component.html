@@ -1,7 +1,7 @@
 <div class="container-fluid mt-3 animated fadeIn fast">
     <div class="row">
         <div class="col">
-            <img class="img-fluid" src="../../../assets/img/cinema.png" alt="">
+            <img class="img-fluid" [src]="proyecto.imagen | imagen:'portada'" alt="">
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
         <div class="row mb-3">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
-                    <img class="img-fluid img-thumbnail" src="../../../assets/img/cinema.png" alt="">
+                    <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
                 </a>
             </div>
 

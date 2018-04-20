@@ -16,6 +16,7 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 
 
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProyectosComponent,
     AboutComponent,
     ProyectoComponent,
+    ImagenPipe,
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
     <div class="card-columns text-center">
 
         <div class="card border-dark animated fadeIn fast" *ngFor="let proyecto of proyectos">
-            <img class="card-img-top img-fluid text-center" src="../../../assets/img/cinema.png" alt="nombre">
+            <img class="card-img-top img-fluid text-center" [src]="proyecto.imagen | imagen:'portada'" alt="nombre">
             <div class="card-block">
                 <h4 class="card-title">{{ proyecto.nombre }}</h4>
                 <p class="card-text">{{ proyecto.descripcion }}</p>
