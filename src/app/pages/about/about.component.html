@@ -14,10 +14,10 @@
                 <h5 class="text-primary">{{ usuario.titulo }}</h5>
 
                 <div class="d-none d-md-block">
-                    <a class="btn btn-primary btn-sm" href="">
+                    <a class="btn btn-primary btn-sm" target="_blank" [href]="usuario.curriculumDoc | imagen:'descarga'">
                         <i class="far fa-file-word"></i> Curriculum
                     </a>
-                    <a class="btn btn-primary btn-sm" href="">
+                    <a class="btn btn-primary btn-sm" target="_blank" [href]="usuario.curriculumPdf | imagen:'descarga'">
                         <i class="far fa-file-pdf"></i> Curriculum
                     </a>
                 </div>
@@ -32,10 +32,10 @@
             </div>
 
             <div class="col-sm-12 col-xs-12 d-md-none text-center">
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary" target="_blank" [href]="usuario.curriculumDoc | imagen:'descarga'">
                     <i class="far fa-file-word"></i> Curriculum
                 </a>
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary" target="_blank" [href]="usuario.curriculumPdf | imagen:'descarga'">
                     <i class="far fa-file-pdf"></i> Curriculum
                 </a>
             </div>

@@ -10,13 +10,13 @@ import { stringify } from '@angular/compiler/src/util';
 export class AboutComponent implements OnInit {
 
   usuario: any[] = [];
-
+  
   constructor(  public _us: UsuarioService ) {
     this.cargarUsuarios();
   }
 
   ngOnInit() {
-    
+
 
   }
 
@@ -26,8 +26,6 @@ export class AboutComponent implements OnInit {
     this._us.cargarUsuario( )
           .subscribe( (resp: any) => {
             this.usuario = resp;
-            console.log(this.usuario);
-            
           });
   }
 

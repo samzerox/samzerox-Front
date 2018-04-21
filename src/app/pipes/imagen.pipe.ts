@@ -26,6 +26,10 @@ export class ImagenPipe implements PipeTransform {
         url += '/portadas/' + imagen;
       break;
 
+      case 'descarga':
+        url += '/descargas/' + imagen;
+      break;
+
       default:
         console.log('tipo de imagen no existe, usuario, captura, portada');
         url += '/usuarios/xxx';
