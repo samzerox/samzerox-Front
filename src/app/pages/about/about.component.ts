@@ -10,9 +10,15 @@ import { stringify } from '@angular/compiler/src/util';
 export class AboutComponent implements OnInit {
 
   usuario: any[] = [];
-  
+  cargando: Boolean = true;
+
   constructor(  public _us: UsuarioService ) {
     this.cargarUsuarios();
+    this.cargando = false;
+
+    // setTimeout(() => {
+    //   this.cargando = false;
+    // }, 1000);
   }
 
   ngOnInit() {
