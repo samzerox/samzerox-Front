@@ -13,7 +13,9 @@
 <div class="container-fluid mt-3 animated fadeIn fast" *ngIf="!cargando">
     <div class="row">
         <div class="col">
-            <img class="img-fluid" [src]="proyecto.imagen | imagen:'portada'" alt="">
+            <a target="_blank" [href]="proyecto.imagen | imagen:'portada'">
+                <img class="img-fluid" [src]="proyecto.imagen | imagen:'portada'" alt="">
+            </a>
         </div>
     </div>
 </div>
@@ -34,7 +36,7 @@
         </div>
     </div>
 
-    <div class="row mb-5">
+    <div class="row mb-5 text-center">
         <div class="col">
             <p>
                 {{ proyecto.descripcion }}
@@ -45,9 +47,9 @@
 
     <div *ngFor="let ventana of proyecto.ventanas">
         <h2 class="title">{{ventana.titulo}}</h2>
-        <div class="row mb-3">
+        <div class="row mb-5">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
+                <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
                     <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
                 </a>
             </div>

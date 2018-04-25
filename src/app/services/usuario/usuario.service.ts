@@ -23,7 +23,7 @@ export class UsuarioService {
   }
 
   cargarUsuario() {
-    let url = URL_SERVICIOS + '/usuario/5ae0b1295192ea5248ef80e0';
+    let url = URL_SERVICIOS + '/usuario/5ad0f058a2f52fb5ef505095';
 
     return this.http.get( url )
               .map( (resp: any) =>  resp.usuario);
