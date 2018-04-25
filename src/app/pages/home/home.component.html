@@ -1,8 +1,43 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <img class="img-thumbnail img-fluid img-construccion" src="../../../assets/img/construccion.jpg" alt="Diseño de vector creado por Freepik">
-            <a class="nav justify-content-center" href="https://www.freepik.es/fotos-vectores-gratis/diseno">Diseño de vector creado por Freepik</a>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Bienvenidos todos</h1>
+            <p class="lead">Esta es una pagina para mostrar todos los proyectos que he realizado a lo largo del tiempo que llevo como desarrollador.</p>
         </div>
+    </div>
+
+    <div class="contenedor row animated fadeIn d-flex justify-content-center" *ngIf="cargando">
+        <div class="col-sm-3 ">
+            <div class="alert alert-warning text-center">
+                <strong>Cargando</strong>
+                <br>
+                <i class="fa fa-refresh fa-spin fa-2x"></i>
+                <br>
+                <span>Espere por favor</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-columns text-center" *ngIf="!cargando">
+
+        <div class="card border-dark animated fadeIn fast" *ngFor="let usuario of usuarios">
+            <img class="card-img-top img-fluid img-thumbnail text-center" [src]="usuario.imagen | imagen" alt="nombre">
+            <div class="card-block">
+                <h4 class="card-title">{{ usuario.nombre }}</h4>
+                <!-- <p class="card-text"></p> -->
+                <p class="card-footer">
+                    <small class="text-muted">
+                        {{ usuario.titulo }}
+                  </small></p>
+
+                <a class="btn btn-outline-dark btn-block" [routerLink]="[ '/about' ]">
+                    Ver mas...
+                </a>
+            </div>
+        </div>
+
+
+
     </div>
 </div>

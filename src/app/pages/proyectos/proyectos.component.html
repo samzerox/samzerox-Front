@@ -1,5 +1,17 @@
 <div class="container">
-    <div class="card-columns text-center">
+    <div class="contenedor row animated fadeIn d-flex justify-content-center" *ngIf="cargando">
+        <div class="col-sm-3 ">
+            <div class="alert alert-warning text-center">
+                <strong>Cargando</strong>
+                <br>
+                <i class="fa fa-refresh fa-spin fa-2x"></i>
+                <br>
+                <span>Espere por favor</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-columns text-center" *ngIf="!cargando">
 
         <div class="card border-dark animated fadeIn fast" *ngFor="let proyecto of proyectos">
             <img class="card-img-top img-fluid text-center" [src]="proyecto.imagen | imagen:'portada'" alt="nombre">

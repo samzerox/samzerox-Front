@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ProyectosComponent implements OnInit {
 
   proyectos: any[] = [];
+  cargando: Boolean = true;
 
   constructor( public _ps: ProyectoService,
                 public router: Router) {
@@ -23,6 +24,7 @@ export class ProyectosComponent implements OnInit {
     this._ps.cargarProyectos()
                 .subscribe( (resp: any) => {
                   this.proyectos = resp;
+                  this.cargando = false;
                 });
   }
 

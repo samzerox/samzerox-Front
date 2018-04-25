@@ -1,11 +1,24 @@
-<div class="container-fluid mt-3 animated fadeIn fast">
+<div class="contenedor row animated fadeIn d-flex justify-content-center" *ngIf="cargando">
+    <div class="col-sm-3 ">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-3 animated fadeIn fast" *ngIf="!cargando">
     <div class="row">
         <div class="col">
             <img class="img-fluid" [src]="proyecto.imagen | imagen:'portada'" alt="">
         </div>
     </div>
 </div>
-<div class="container mb-5 animated fadeIn fast">
+
+<div class="container mb-5 animated fadeIn fast" *ngIf="!cargando">
 
     <div class="row mt-4">
         <div class="col text-center">

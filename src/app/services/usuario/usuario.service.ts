@@ -12,11 +12,18 @@ export class UsuarioService {
   usuario: any[] = [];
 
   constructor(  public http: HttpClient ) {
-    this.cargarUsuario();
+    // this.cargarUsuario();
+  }
+
+  cargarUsuarios() {
+    let url = URL_SERVICIOS + '/usuario';
+
+    return this.http.get( url )
+              .map( (resp: any) =>  resp.usuario);
   }
 
   cargarUsuario() {
-    let url = URL_SERVICIOS + '/usuario/5ad0f058a2f52fb5ef505095';
+    let url = URL_SERVICIOS + '/usuario/5ae0b1295192ea5248ef80e0';
 
     return this.http.get( url )
               .map( (resp: any) =>  resp.usuario);

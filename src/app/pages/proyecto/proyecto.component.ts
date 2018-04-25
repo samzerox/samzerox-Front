@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProyectoComponent implements OnInit {
 
   proyecto: any[] = [];
+  cargando: Boolean = true;
 
   constructor(public _ps: ProyectoService,
               public activatedRoute: ActivatedRoute) {
@@ -30,6 +31,7 @@ export class ProyectoComponent implements OnInit {
                 .subscribe( (resp: any) => {
                   this.proyecto = resp;
                   console.log(this.proyecto);
+                  this.cargando = false;
                 });
   }
 
