@@ -45,52 +45,58 @@
     </div>
 
 
-    <div *ngFor="let ventana of proyecto.ventanas">
-        <h2 class="title">{{ventana.titulo}}</h2>
-        <div class="row mb-5">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
-                    <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
-                </a>
+    <div *ngFor="let ventana of proyecto.ventanas; let i = index">
+        <div *ngIf="(i+1)%2==0">
+            <h2 class="title">{{ventana.titulo}}</h2>
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
+                        <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
+                    </a>
+                </div>
+
+                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <p>
+                        {{ventana.descripcion}}
+                    </p>
+                </div>
+
+
             </div>
-
-            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                <p>
-                    {{ventana.descripcion}}
-                </p>
-            </div>
-
-
+            <hr>
         </div>
+        <div *ngIf="(i+1)%2!=0">
+            <h2 class="title">{{ventana.titulo}}</h2>
+            <div class="row">
+                <!-- Desaparece cuando es mas pequeño que sm -->
+                <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
+                    <p>
+                        {{ventana.descripcion}}
+                    </p>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
+                        <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
+                    </a>
+                </div>
+
+                <!-- Aparece cuando es mas pequeño que sm -->
+                <div class="col-sm-6 col-xs-12 d-sm-none">
+                    <p>
+                        {{ventana.descripcion}}
+                    </p>
+                </div>
+
+            </div>
+            <hr>
+        </div>
+
     </div>
 
-    <!-- 
-    <hr>
 
-    <h2 class="title">cartelera</h2>
 
-    <div class="row"> -->
-    <!-- Desaparece cuando es mas pequeño que sm -->
-    <!-- <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti odit! Dolore aperiam delectus illum sint natus quisquam. Voluptatem similique veritatis eum laboriosam suscipit accusamus animi, eaque tenetur inventore labore?
-            </p>
-        </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <a target="_blank" href="http://localhost:4200/assets/img/cinema.png">
-                <img class="img-fluid img-thumbnail" src="../../../assets/img/cinema.png" alt="">
-            </a>
-        </div> -->
-
-    <!-- Aparece cuando es mas pequeño que sm -->
-    <!-- <div class="col-sm-6 col-xs-12 d-sm-none">
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, corrupti odit! Dolore aperiam delectus illum sint natus quisquam. Voluptatem similique veritatis eum laboriosam suscipit accusamus animi, eaque tenetur inventore labore?
-            </p>
-        </div>
-
-    </div> -->
 
 
 
