@@ -110,3 +110,10 @@
         text-align: left;
     }
 }
+
+
+/* Tamaño para iconos de ionic */
+
+.icon {
+    font-size: 25px;
+}
