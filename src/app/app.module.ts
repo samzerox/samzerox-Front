@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
+import { ConfiguracionesComponent } from './pages/configuraciones/configuraciones.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
@@ -31,6 +32,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     AboutComponent,
     ProyectoComponent,
     ImagenPipe,
+    ConfiguracionesComponent
   ],
   imports: [
     BrowserModule,
