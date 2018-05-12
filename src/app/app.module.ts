@@ -11,13 +11,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
-import { ConfiguracionesComponent } from './pages/configuraciones/configuraciones.component';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { UsuarioConfigComponent } from './pages/usuario-config/usuario-config.component';
+import { ProyectoConfigComponent } from './pages/proyecto-config/proyecto-config.component';
 
 
 
@@ -32,7 +34,9 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     AboutComponent,
     ProyectoComponent,
     ImagenPipe,
-    ConfiguracionesComponent
+    SidebarComponent,
+    UsuarioConfigComponent,
+    ProyectoConfigComponent
   ],
   imports: [
     BrowserModule,

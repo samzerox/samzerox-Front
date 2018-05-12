@@ -117,3 +117,13 @@
 .icon {
     font-size: 25px;
 }
+
+
+/* Sidebar */
+
+.sidebar {
+    position: fixed;
+    /* width: 100px; */
+    height: 100%;
+    background: #151719;
+}
