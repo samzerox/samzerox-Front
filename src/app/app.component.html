@@ -1,17 +1,15 @@
 <app-navbar></app-navbar>
-
-<div class="container-fluid" *ngIf="token">
-    <div class="row">
-
-        <div class="col-2 text-light bg-dark">
-            <app-sidebar></app-sidebar>
-        </div>
-        <div class="col-10">
-            <router-outlet></router-outlet>
-        </div>
+<div class="row" *ngIf="token">
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
     </div>
+    <div class="col-9">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
 
 <div *ngIf="!token">
     <router-outlet></router-outlet>
+
 </div>
