@@ -20,6 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { UsuarioConfigComponent } from './pages/usuario-config/usuario-config.component';
 import { ProyectoConfigComponent } from './pages/proyecto-config/proyecto-config.component';
+import { LoginComponent } from './pages/login/login.component';
+
+// forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -36,12 +40,15 @@ import { ProyectoConfigComponent } from './pages/proyecto-config/proyecto-config
     ImagenPipe,
     SidebarComponent,
     UsuarioConfigComponent,
-    ProyectoConfigComponent
+    ProyectoConfigComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UsuarioService,
