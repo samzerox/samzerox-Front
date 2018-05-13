@@ -52,7 +52,6 @@ export class UsuarioService {
               .map( (resp: any) =>  resp.usuario);
   }
 
-  
   login( usuario: Usuario ) {
 
 
@@ -68,6 +67,13 @@ export class UsuarioService {
                 swal('Error en el login', err.error.mensaje, 'error');
                 return Observable.throw( err );
               });
+  }
+
+  logout() {
+    this.token = '';
+
+    localStorage.removeItem('token');
+
   }
 
 }

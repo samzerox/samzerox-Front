@@ -11,7 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
-import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
@@ -38,7 +37,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     ProyectoComponent,
     ImagenPipe,
-    SidebarComponent,
     UsuarioConfigComponent,
     ProyectoConfigComponent,
     LoginComponent
