@@ -18,9 +18,24 @@ declare var swal: any;
 export class UsuarioService {
 
   usuario: any[] = [];
+  token: string;
 
   constructor(  public http: HttpClient ) {
-    // this.cargarUsuario();
+    this.cargarStorage();
+  }
+
+  guardarStorage( token: string ) {
+
+    localStorage.setItem('token', token );
+    this.token = token;
+  }
+
+  cargarStorage() {
+    if ( localStorage.getItem('token') ) {
+      this.token = localStorage.getItem('token');
+    } else {
+      this.token = '';
+    }
   }
 
   cargarUsuarios() {
@@ -40,18 +55,12 @@ export class UsuarioService {
   
   login( usuario: Usuario ) {
 
-    // if ( recordar ) {
-    //   localStorage.setItem('token', usuario.correo);
-    // } else {
-    //   localStorage.removeItem('correo');
-    // }
 
     let url = URL_SERVICIOS + '/login';
     return this.http.post( url, usuario)
               .map((resp: any) => {
 
-                // this.guardarStorage( resp.id, resp.token, resp.usuario, resp.menu );
-                console.log(resp);
+                this.guardarStorage( resp.token );
                   return true;
               })
               .catch ( err => {

@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="row" *ngIf="token">
+<div class="row" *ngIf="token.length > 0">
     <div class="col-2">
         <app-sidebar></app-sidebar>
     </div>
@@ -9,7 +9,7 @@
 
 </div>
 
-<div *ngIf="!token">
+<div *ngIf="token.length == 0">
     <router-outlet></router-outlet>
 
 </div>
