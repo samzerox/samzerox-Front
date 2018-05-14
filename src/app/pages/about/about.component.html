@@ -1,18 +1,16 @@
-<div class="container-fluid base animated fadeIn fast" id="accordion">
-
-
-    <div class="contenedor row animated fadeIn d-flex justify-content-center" *ngIf="cargando">
-        <div class="col-sm-3 ">
-            <div class="alert alert-warning text-center">
-                <strong>Cargando</strong>
-                <br>
-                <i class="fa fa-refresh fa-spin fa-2x"></i>
-                <br>
-                <span>Espere por favor</span>
-            </div>
+<div class=" row animated fadeIn d-flex justify-content-center" *ngIf="cargando">
+    <div class="col-sm-3 ">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
         </div>
     </div>
+</div>
 
+<div class="container-fluid base animated fadeIn fast" id="accordion">
 
     <div class="contenedor pb-4 animated fadeIn" *ngIf="!cargando">
         <div class="row pt-4 pl-4 pr-4">
@@ -312,12 +310,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
     </div>
 
