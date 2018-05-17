@@ -8,6 +8,8 @@ import { URL_SERVICIOS } from '../../config/config';
 import { UsuarioService } from '../usuario/usuario.service';
 import { Proyecto } from '../../models/proyecto.model';
 
+import { Observable } from 'rxjs/Observable';
+
 declare var swal: any;
 
 @Injectable()
@@ -34,32 +36,31 @@ export class ProyectoService {
               .map( (resp: any) => resp.proyecto);
   }
 
-  actualizarProyecto( proyecto: Proyecto ) {
+  crearProyecto( proyecto: Proyecto) {
     let url = URL_SERVICIOS + '/proyecto';
+        url += '?token=' + this._us.token;
 
-    if ( proyecto._id ) {
-      // actualizando un proyecto
-      url += '/' + proyecto._id;
-      url += '?token=' + this._us.token;
-
-      return this.http.put( url, proyecto )
-              .map( (resp: any) => {
-
-                swal('Proyecto Actualizado', proyecto.nombre, 'success');
-                return resp.proyecto;
-
-              });
-
-    } else {
-      // creando un proyecto
-      url += '?token=' + this._us.token;
-
-      return this.http.post( url, proyecto )
+        return this.http.post( url, proyecto )
           .map( (resp: any) => {
-            swal('Proyecto creado', proyecto.nombre, 'success');
+            swal( 'Proyecto creado', proyecto.nombre, 'success');
             return resp.proyecto;
+          })
+          .catch ( err => {
+
+            swal(err.error.mensaje, err.error.errors.message, 'error');
+            return Observable.throw( err );
           });
-    }
+  }
+
+  borrarProyecto( id: string) {
+    let url = URL_SERVICIOS + '/proyecto/' + id;
+    url += '?token=' + this._us.token;
+
+    return this.http.delete( url )
+              .map( resp => {
+                swal('Proyecto borrado', ' El proyecto ha sido borrao correctamente', 'success');
+                return true;
+              });
   }
 
 
