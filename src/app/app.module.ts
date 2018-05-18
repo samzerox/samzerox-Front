@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { APP_ROUTES } from './app.routes';
@@ -11,17 +12,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
+import { LoginComponent } from './pages/login/login.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
-import { HttpClientModule } from '@angular/common/http';
-import { ImagenPipe } from './pipes/imagen.pipe';
-import { UsuarioConfigComponent } from './pages/usuario-config/usuario-config.component';
-import { ProyectoConfigComponent } from './pages/proyecto-config/proyecto-config.component';
-import { LoginComponent } from './pages/login/login.component';
 
-// forms
+// Pipes
+import { ImagenPipe } from './pipes/imagen.pipe';
+
+// Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -37,8 +37,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     ProyectoComponent,
     ImagenPipe,
-    UsuarioConfigComponent,
-    ProyectoConfigComponent,
     LoginComponent
   ],
   imports: [
