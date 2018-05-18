@@ -15,6 +15,15 @@
     cursor: pointer;
 }
 
+.eliminar {
+    position: absolute;
+    margin-left: 83%;
+}
+
+.camara {
+    position: absolute;
+}
+
 @media only screen and (min-width: 992px) {
     .base {
         background: url(assets/img/bodyBack.png);
