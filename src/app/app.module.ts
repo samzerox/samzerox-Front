@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
+import { VentanaService } from './services/ventana/ventana.service';
 
 // Pipes
 import { ImagenPipe } from './pipes/imagen.pipe';
@@ -48,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     UsuarioService,
-    ProyectoService
+    ProyectoService,
+    VentanaService
   ],
   bootstrap: [AppComponent]
 })

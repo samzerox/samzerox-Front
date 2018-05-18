@@ -52,6 +52,10 @@ export class ProyectoService {
           });
   }
 
+  editarProyecto( id: string,  ) {
+
+  }
+  
   borrarProyecto( id: string) {
     let url = URL_SERVICIOS + '/proyecto/' + id;
     url += '?token=' + this._us.token;

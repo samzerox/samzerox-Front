@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoService } from '../../services/proyecto/proyecto.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
+// Models
+import { Ventana } from '../../models/ventana.model';
+
+// services
+import { ProyectoService } from '../../services/proyecto/proyecto.service';
+import { UsuarioService } from '../../services/usuario/usuario.service';
+import { VentanaService } from '../../services/ventana/ventana.service';
 
 
 @Component({
@@ -13,7 +21,9 @@ export class ProyectoComponent implements OnInit {
   proyecto: any[] = [];
   cargando: Boolean = true;
 
-  constructor(public _ps: ProyectoService,
+  constructor(public _us: UsuarioService,
+              public _ps: ProyectoService,
+              public _vs: VentanaService,
               public activatedRoute: ActivatedRoute) {
 
                 activatedRoute.params.subscribe( params => {
@@ -33,6 +43,47 @@ export class ProyectoComponent implements OnInit {
                   this.cargando = false;
                 });
   }
+
+  crearVentana( forma: NgForm) {
+    if (forma.invalid) {
+      return;
+    }
+
+    let ventana = new Ventana(forma.value.titulo, forma.value.descripcion);
+
+    this._vs.crearVentana( ventana )
+                  .subscribe(correcto => {
+                    console.log(correcto);
+                    // this.cargarProyecto(id);
+                    } );
+
+  }
+
+  borrarVentana( ventana: Ventana ) {
+
+    swal({
+      title: 'Estas seguro?',
+      text: 'Esta a punto de borrar el proyecto ' + ventana.titulo,
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then( borrar => {
+        console.log( borrar );
+
+      if (borrar) {
+        this._vs.borrarVentana( ventana._id)
+                  .subscribe( borrado => {
+                    console.log(borrado);
+                    this.cargarProyecto();
+                  });
+      }
+    });
+
+  }
+
+
+
 
 
 
