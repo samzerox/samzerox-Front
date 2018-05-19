@@ -9,6 +9,9 @@ import { Ventana } from '../../models/ventana.model';
 import { ProyectoService } from '../../services/proyecto/proyecto.service';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { VentanaService } from '../../services/ventana/ventana.service';
+import { Proyecto } from '../../models/proyecto.model';
+
+declare var swal: any;
 
 
 @Component({
@@ -26,25 +29,33 @@ export class ProyectoComponent implements OnInit {
               public _vs: VentanaService,
               public activatedRoute: ActivatedRoute) {
 
-                activatedRoute.params.subscribe( params => {
+                // activatedRoute.params.subscribe( params => {
 
-                  let id = params['id'];
-                    this.cargarProyecto( id );
-                });
+                //   let id = params['id'];
+                //     this.cargarProyecto( id );
+                // });
+                this.cargarProyecto();
 
   }
 
   ngOnInit() { }
 
-  cargarProyecto(  id ) {
-    this._ps.cargarProyecto( id )
-                .subscribe( (resp: any) => {
-                  this.proyecto = resp;
-                  this.cargando = false;
-                });
+  cargarProyecto( ) {
+
+    this.activatedRoute.params.subscribe( params => {
+
+      let id = params['id'];
+
+
+      this._ps.cargarProyecto( id )
+      .subscribe( (resp: any) => {
+        this.proyecto = resp;
+        this.cargando = false;
+      });
+    });
   }
 
-  crearVentana( forma: NgForm) {
+  crearVentana( forma: NgForm, id: string) {
     if (forma.invalid) {
       return;
     }
@@ -53,13 +64,22 @@ export class ProyectoComponent implements OnInit {
 
     this._vs.crearVentana( ventana )
                   .subscribe(correcto => {
-                    console.log(correcto);
-                    // this.cargarProyecto(id);
+                    this.actualizarProyecto(this.proyecto, correcto._id);
                     } );
 
   }
 
-  borrarVentana( ventana: Ventana ) {
+  actualizarProyecto(proyecto, idVentana) {
+
+
+      this._ps.actualizarProyecto( proyecto, idVentana )
+              .subscribe(resp => {
+                this.cargarProyecto();
+              });
+
+  }
+
+  borrarventana( ventana: Ventana ) {
 
     swal({
       title: 'Estas seguro?',

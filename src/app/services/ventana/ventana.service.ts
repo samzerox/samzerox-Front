@@ -34,4 +34,17 @@ export class VentanaService {
                 });
   }
 
+
+  borrarVentana( id: string ) {
+    let url = URL_SERVICIOS + '/ventana/' + id;
+    url += '?token=' + this._us.token;
+
+    return this.http.delete( url )
+              .map( resp => {
+                swal('Ventana borrada', ' La ventana ha sido borrada correctamente', 'success');
+                return true;
+              });
+  }
 }
+
+

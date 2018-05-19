@@ -53,7 +53,11 @@
 
     <div *ngFor="let ventana of proyecto.ventanas; let i = index">
         <div *ngIf="(i+1)%2==0">
-            <h2 class="title">{{ventana.titulo}}</h2>
+            <h2 class="title">{{ventana.titulo}}
+                <span *ngIf="_us.token.length">
+                            <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
+                        </span>
+            </h2>
             <div class="row mb-5">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
@@ -72,7 +76,11 @@
             <hr>
         </div>
         <div *ngIf="(i+1)%2!=0">
-            <h2 class="title">{{ventana.titulo}}</h2>
+            <h2 class="title">{{ventana.titulo}}
+                <span *ngIf="_us.token.length">
+                    <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
+                </span>
+            </h2>
             <div class="row">
                 <!-- Desaparece cuando es mas pequeño que sm -->
                 <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
@@ -139,7 +147,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
             </div>
-            <form #f="ngForm" (ngSubmit)="crearVentana(f)">
+            <form #f="ngForm" (ngSubmit)="crearVentana(f, proyecto._id)">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Titulo:</label>

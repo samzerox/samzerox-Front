@@ -9,6 +9,7 @@ import { UsuarioService } from '../usuario/usuario.service';
 import { Proyecto } from '../../models/proyecto.model';
 
 import { Observable } from 'rxjs/Observable';
+import { Ventana } from '../../models/ventana.model';
 
 declare var swal: any;
 
@@ -52,8 +53,17 @@ export class ProyectoService {
           });
   }
 
-  editarProyecto( id: string,  ) {
+  actualizarProyecto( proyecto: Proyecto, ventana: [string] ) {
+    let url = URL_SERVICIOS + '/proyecto/' + proyecto._id;
+    url += '?token=' + this._us.token;
 
+    proyecto.ventanas = [ventana];
+
+    return this.http.put(url, proyecto )
+          .map( (resp: any) => {
+            swal('Proyecto Actualizado', proyecto.nombre, 'success');
+            return resp;
+          });
   }
   
   borrarProyecto( id: string) {
