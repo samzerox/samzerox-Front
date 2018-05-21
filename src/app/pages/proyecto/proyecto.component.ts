@@ -29,11 +29,6 @@ export class ProyectoComponent implements OnInit {
               public _vs: VentanaService,
               public activatedRoute: ActivatedRoute) {
 
-                // activatedRoute.params.subscribe( params => {
-
-                //   let id = params['id'];
-                //     this.cargarProyecto( id );
-                // });
                 this.cargarProyecto();
 
   }
@@ -89,12 +84,10 @@ export class ProyectoComponent implements OnInit {
       dangerMode: true,
     })
     .then( borrar => {
-        console.log( borrar );
 
       if (borrar) {
         this._vs.borrarVentana( ventana._id)
                   .subscribe( borrado => {
-                    console.log(borrado);
                     this.cargarProyecto();
                   });
       }

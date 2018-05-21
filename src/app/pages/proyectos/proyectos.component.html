@@ -24,8 +24,12 @@
 
         <div class="card border-dark animated fadeIn fast" *ngFor="let proyecto of proyectos">
             <div>
-                <button (click)="borrarProyecto(proyecto)" type="button" class="btn btn-outline-danger eliminar mt-1" *ngIf="_us.token.length">X</button>
-                <button (click)="cambiarImagen(proyecto)" type="button" class="btn btn-outline-dark camara mt-1" *ngIf="_us.token.length"><i class="fas fa-camera"></i></button>
+                <button (click)="borrarProyecto(proyecto)" type="button" class="btn btn-outline-danger eliminar mt-1" *ngIf="_us.token.length">
+                    X
+                </button>
+                <button type="button" class="btn btn-outline-dark camara mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
+                    <i class="fas fa-camera"></i>
+                </button>
                 <img class="card-img-top img-fluid text-center" [src]="proyecto.imagen | imagen:'portada'" alt="nombre">
             </div>
 
@@ -82,6 +86,32 @@
                     <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de cambio de imagen -->
+<div class="modal fade" id="nuevaImagenModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button data-dismiss="modal" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body text-center">
+
+                <img *ngIf="!imagenTemp" [src]=" 'xxx' | imagen" class="w150">
+                <img *ngIf="imagenTemp" [src]=" imagenTemp" class="w150">
+
+                <input (change)="seleccionImagen( $event.target.files[0] )" type="file">
+
+            </div>
+            <div class="modal-footer">
+                <button (click)="subirImagen()" [disabled]="!imagenTemp" type="button" class="btn btn-primary">Subir imagen</button>
+                <button data-dismiss="modal" type="button" class="btn btn-secondary">Cerrar</button>
+            </div>
         </div>
     </div>
 </div>

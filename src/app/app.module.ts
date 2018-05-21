@@ -18,6 +18,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
 import { VentanaService } from './services/ventana/ventana.service';
+import { SubirArchivoService } from './services/subir-archivo/subir-archivo.service';
 
 // Pipes
 import { ImagenPipe } from './pipes/imagen.pipe';
@@ -50,7 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     UsuarioService,
     ProyectoService,
-    VentanaService
+    VentanaService,
+    SubirArchivoService
   ],
   bootstrap: [AppComponent]
 })

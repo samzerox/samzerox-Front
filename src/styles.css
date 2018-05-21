@@ -11,6 +11,10 @@
     height: 100px;
 }
 
+.w150 {
+    width: 150px;
+}
+
 .pointer {
     cursor: pointer;
 }

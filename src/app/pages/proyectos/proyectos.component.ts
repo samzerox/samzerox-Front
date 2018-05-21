@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Proyecto } from '../../models/proyecto.model';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario/usuario.service';
+import { SubirArchivoService } from '../../services/subir-archivo/subir-archivo.service';
 
 declare var swal: any;
 
@@ -19,8 +20,12 @@ export class ProyectosComponent implements OnInit {
   proyectos: any[] = [];
   cargando: Boolean = true;
 
+  imagenSubir: File;
+  imagenTemp: string;
+
   constructor(  public _us: UsuarioService,
                 public _ps: ProyectoService,
+                public _sas: SubirArchivoService,
                 public router: Router) {
     this.cargarProyecto();
    }
@@ -73,5 +78,43 @@ export class ProyectosComponent implements OnInit {
     });
 
   }
+
+
+  seleccionImagen( archivo: File) {
+    if ( !archivo ) {
+      this.imagenSubir = null;
+        return;
+    }
+
+    if ( archivo.type.indexOf('image') < 0 ) {
+      swal('Solo imagenes', 'El archivo seleccionado no es una imagen', 'error');
+      this.imagenSubir = null;
+      return;
+    }
+     this.imagenSubir = archivo;
+
+     let reader = new FileReader();
+     let urlImagenTemp = reader.readAsDataURL( archivo );
+
+     reader.onloadend = () => { this.imagenTemp = reader.result; };
+
+  }
+
+
+  subirImagen(id: string) {
+
+    this._sas.subirArchivo( this.imagenSubir, 'portada', id)
+              .then( resp => {
+
+                console.log(resp);
+              })
+              .catch (err => {
+                console.log('Error en la carga...');
+
+              });
+  }
+
+
+
 
 }
