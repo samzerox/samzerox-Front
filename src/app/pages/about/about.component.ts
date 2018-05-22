@@ -27,6 +27,7 @@ export class AboutComponent implements OnInit {
     this._us.cargarUsuario( )
           .subscribe( (resp: any) => {
             this.usuario = resp;
+            console.log(resp);
             this.cargando = false;
           });
   }
