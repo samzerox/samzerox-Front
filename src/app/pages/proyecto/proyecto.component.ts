@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 
 // Models
 import { Ventana } from '../../models/ventana.model';
+import { Tecnologia } from '../../models/tecnologia.model';
 
 // services
 import { ProyectoService } from '../../services/proyecto/proyecto.service';
@@ -11,6 +12,7 @@ import { UsuarioService } from '../../services/usuario/usuario.service';
 import { VentanaService } from '../../services/ventana/ventana.service';
 import { Proyecto } from '../../models/proyecto.model';
 import { ModalUploadService } from '../../services/modal-upload/modal-upload.service';
+import { TecnologiaService } from '../../services/tecnologia/tecnologia.service';
 
 declare var swal: any;
 
@@ -23,15 +25,18 @@ declare var swal: any;
 export class ProyectoComponent implements OnInit {
 
   proyecto: any[] = [];
+  tecnologias: any[] = [];
   cargando: Boolean = true;
 
   constructor(public _us: UsuarioService,
               public _ps: ProyectoService,
               public _vs: VentanaService,
+              public _ts: TecnologiaService,
               public _modalUploadService: ModalUploadService,
               public activatedRoute: ActivatedRoute) {
 
                 this.cargarProyecto();
+                this.cargarTecnologias()
 
   }
 
@@ -55,16 +60,37 @@ export class ProyectoComponent implements OnInit {
     });
   }
 
+  cargarTecnologias() {
+    this._ts.cargarTecnologias()
+                .subscribe( (resp: any) => {
+                  this.tecnologias = resp;
+                });
+  }
+
   crearVentana( forma: NgForm, id: string) {
     if (forma.invalid) {
       return;
     }
 
     let ventana = new Ventana(forma.value.titulo, forma.value.descripcion);
+    console.log(ventana);
 
     this._vs.crearVentana( ventana )
                   .subscribe(correcto => {
                     this.actualizarProyecto(this.proyecto, correcto._id);
+                    } );
+
+  }
+
+  agregarTecnologia( idTecnologia, proyecto: Proyecto) {
+
+    console.log(idTecnologia);
+    console.log(proyecto);
+
+
+    this._ts.actualizarTecnologia( idTecnologia, proyecto )
+                  .subscribe(correcto => {
+                    this.cargarProyecto();
                     } );
 
   }

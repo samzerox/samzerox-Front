@@ -21,6 +21,8 @@ import { ProyectoService } from './services/proyecto/proyecto.service';
 import { VentanaService } from './services/ventana/ventana.service';
 import { SubirArchivoService } from './services/subir-archivo/subir-archivo.service';
 import { ModalUploadService } from './services/modal-upload/modal-upload.service';
+import { TecnologiaService } from './services/tecnologia/tecnologia.service';
+
 
 // Pipes
 import { ImagenPipe } from './pipes/imagen.pipe';
@@ -56,7 +58,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProyectoService,
     VentanaService,
     SubirArchivoService,
-    ModalUploadService
+    ModalUploadService,
+    TecnologiaService
   ],
   bootstrap: [AppComponent]
 })
