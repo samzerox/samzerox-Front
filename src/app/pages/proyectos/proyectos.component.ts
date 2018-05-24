@@ -55,7 +55,7 @@ export class ProyectosComponent implements OnInit {
 
     this._ps.crearProyecto( proyecto )
                   .subscribe(correcto => {
-                    this.cargarProyecto();
+                    this.cargarProyectos();
                     } );
 
   }
@@ -76,7 +76,7 @@ export class ProyectosComponent implements OnInit {
         this._ps.borrarProyecto( proyecto._id)
                   .subscribe( borrado => {
                     console.log(borrado);
-                    this.cargarProyecto();
+                    this.cargarProyectos();
                   });
       }
     });
