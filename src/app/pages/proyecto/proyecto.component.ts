@@ -10,6 +10,7 @@ import { ProyectoService } from '../../services/proyecto/proyecto.service';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { VentanaService } from '../../services/ventana/ventana.service';
 import { Proyecto } from '../../models/proyecto.model';
+import { ModalUploadService } from '../../services/modal-upload/modal-upload.service';
 
 declare var swal: any;
 
@@ -27,13 +28,17 @@ export class ProyectoComponent implements OnInit {
   constructor(public _us: UsuarioService,
               public _ps: ProyectoService,
               public _vs: VentanaService,
+              public _modalUploadService: ModalUploadService,
               public activatedRoute: ActivatedRoute) {
 
                 this.cargarProyecto();
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._modalUploadService.notificacion
+    .subscribe( resp => this.cargarProyecto() );
+  }
 
   cargarProyecto( ) {
 
@@ -93,6 +98,11 @@ export class ProyectoComponent implements OnInit {
       }
     });
 
+  }
+
+
+  mostarModal( id: string ) {
+    this._modalUploadService.mostrarModal('capturas', id );
   }
 
 

@@ -29,13 +29,15 @@ export class ProyectosComponent implements OnInit {
                 public _sas: SubirArchivoService,
                 public _modalUploadService: ModalUploadService,
                 public router: Router) {
-    this.cargarProyecto();
+    this.cargarProyectos();
    }
 
   ngOnInit() {
+    this._modalUploadService.notificacion
+    .subscribe( resp => this.cargarProyectos() );
   }
 
-  cargarProyecto() {
+  cargarProyectos() {
     this._ps.cargarProyectos()
                 .subscribe( (resp: any) => {
                   this.proyectos = resp;
