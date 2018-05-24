@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { URL_SERVICIOS } from '../../config/config';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable()
 export class SubirArchivoService {
 
-  constructor() { }
+  constructor(public _us: UsuarioService) { }
 
   subirArchivo( archivo: File, tipo: string, id: string ) {
 
@@ -30,6 +31,7 @@ export class SubirArchivoService {
         };
 
         let url = URL_SERVICIOS + '/upload/' + tipo + '/' + id;
+            url += '?token=' + this._us.token;
 
         xhr.open('PUT', url, true );
         xhr.send( formData );

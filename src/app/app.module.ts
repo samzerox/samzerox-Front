@@ -13,12 +13,14 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ModalUploadComponent } from './components/modal-upload/modal-upload.component';
 
 // Services
 import { UsuarioService } from './services/usuario/usuario.service';
 import { ProyectoService } from './services/proyecto/proyecto.service';
 import { VentanaService } from './services/ventana/ventana.service';
 import { SubirArchivoService } from './services/subir-archivo/subir-archivo.service';
+import { ModalUploadService } from './services/modal-upload/modal-upload.service';
 
 // Pipes
 import { ImagenPipe } from './pipes/imagen.pipe';
@@ -39,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     ProyectoComponent,
     ImagenPipe,
-    LoginComponent
+    LoginComponent,
+    ModalUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UsuarioService,
     ProyectoService,
     VentanaService,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService
   ],
   bootstrap: [AppComponent]
 })
