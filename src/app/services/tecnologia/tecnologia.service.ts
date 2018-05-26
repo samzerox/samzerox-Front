@@ -9,6 +9,8 @@ declare var swal: any;
 @Injectable()
 export class TecnologiaService {
 
+  tecnologias: any[] = [];
+
   constructor( private http: HttpClient,
                private _us: UsuarioService) { }
 
@@ -16,7 +18,7 @@ export class TecnologiaService {
     let url = URL_SERVICIOS + '/tecnologia';
 
     return this.http.get(url)
-              .map( (resp: any) => resp.tecnologia);
+              .map( (resp: any) => this.tecnologias = resp.tecnologia);
   }
 
   actualizarTecnologia( idTecnologia: [string], proyecto: Proyecto ) {

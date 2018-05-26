@@ -29,6 +29,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
 
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalTecnologiaComponent } from './components/modal-tecnologia/modal-tecnologia.component';
 
 
 
@@ -44,7 +45,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProyectoComponent,
     ImagenPipe,
     LoginComponent,
-    ModalUploadComponent
+    ModalUploadComponent,
+    ModalTecnologiaComponent
   ],
   imports: [
     BrowserModule,

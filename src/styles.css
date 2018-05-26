@@ -28,7 +28,15 @@
     position: absolute;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .oculto {
+    display: none;
+}
+
+.activo {
     display: none;
 }
 

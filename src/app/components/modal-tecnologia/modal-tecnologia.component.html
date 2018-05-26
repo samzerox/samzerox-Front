@@ -1,0 +1,52 @@
+<!-- modal Tecnologia-->
+<div class="fondo-negro animated fadeIn" [ngClass]="_modalUploadService.activo">
+    <div class="modal" style="display:block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="nuevaTecnologiaModalLabel">Seleccionar Tecnologias</h5>
+                    <button (click)="cerrarTecnologias()" type="button" class="close" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tecnologias</button>
+                        <div class="dropdown-menu">
+                            <ol *ngFor="let tecnologia of tecnologias">
+                                <li>
+                                    <button (click)="agregarTecnologia(tecnologia._id, _modalUploadService.proyecto)" class="dropdown-item">{{tecnologia.nombre}}</button>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <form #f="ngForm">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tecnologia</th>
+                            </tr>
+
+
+                        </thead>
+                        <tbody *ngIf="_modalUploadService.proyecto">
+                            <tr *ngFor="let tecnologia of _modalUploadService.proyecto.tecnologias">
+
+                                <td>
+                                    {{tecnologia.nombre}}
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="modal-footer">
+                        <button (click)="cerrarTecnologias()" type="button" class="btn btn-secondary">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

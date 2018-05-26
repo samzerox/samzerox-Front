@@ -25,7 +25,6 @@ declare var swal: any;
 export class ProyectoComponent implements OnInit {
 
   proyecto: any[] = [];
-  tecnologias: any[] = [];
   cargando: Boolean = true;
 
   constructor(public _us: UsuarioService,
@@ -36,7 +35,6 @@ export class ProyectoComponent implements OnInit {
               public activatedRoute: ActivatedRoute) {
 
                 this.cargarProyecto();
-                this.cargarTecnologias()
 
   }
 
@@ -60,12 +58,7 @@ export class ProyectoComponent implements OnInit {
     });
   }
 
-  cargarTecnologias() {
-    this._ts.cargarTecnologias()
-                .subscribe( (resp: any) => {
-                  this.tecnologias = resp;
-                });
-  }
+  
 
   crearVentana( forma: NgForm, id: string) {
     if (forma.invalid) {
@@ -82,18 +75,7 @@ export class ProyectoComponent implements OnInit {
 
   }
 
-  agregarTecnologia( idTecnologia, proyecto: Proyecto) {
-
-    console.log(idTecnologia);
-    console.log(proyecto);
-
-
-    this._ts.actualizarTecnologia( idTecnologia, proyecto )
-                  .subscribe(correcto => {
-                    this.cargarProyecto();
-                    } );
-
-  }
+  
 
   actualizarProyecto(proyecto, idVentana) {
 
@@ -129,6 +111,10 @@ export class ProyectoComponent implements OnInit {
 
   mostarModal( id: string ) {
     this._modalUploadService.mostrarModal('capturas', id );
+  }
+
+  mostarTecnologias( proyecto: Proyecto ) {
+    this._modalUploadService.mostrarTecnologias( proyecto );
   }
 
 
