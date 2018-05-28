@@ -3,16 +3,39 @@ import { HttpClient } from '@angular/common/http';
 
 import { URL_SERVICIOS } from '../../config/config';
 
+import { Usuario } from '../../models/usuario.model';
+
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs/Observable';
+
+// import swal from 'sweetalert';
+declare var swal: any;
 
 
 @Injectable()
 export class UsuarioService {
 
   usuario: any[] = [];
+  token: string;
 
   constructor(  public http: HttpClient ) {
-    // this.cargarUsuario();
+    this.cargarStorage();
+  }
+
+  guardarStorage( token: string ) {
+
+    localStorage.setItem('token', token );
+    this.token = token;
+  }
+
+  cargarStorage() {
+    if ( localStorage.getItem('token') ) {
+      this.token = localStorage.getItem('token');
+    } else {
+      this.token = '';
+    }
   }
 
   cargarUsuarios() {
@@ -27,6 +50,30 @@ export class UsuarioService {
 
     return this.http.get( url )
               .map( (resp: any) =>  resp.usuario);
+  }
+
+  login( usuario: Usuario ) {
+
+
+    let url = URL_SERVICIOS + '/login';
+    return this.http.post( url, usuario)
+              .map((resp: any) => {
+
+                this.guardarStorage( resp.token );
+                  return true;
+              })
+              .catch ( err => {
+
+                swal('Error en el login', err.error.mensaje, 'error');
+                return Observable.throw( err );
+              });
+  }
+
+  logout() {
+    this.token = '';
+
+    localStorage.removeItem('token');
+
   }
 
 }

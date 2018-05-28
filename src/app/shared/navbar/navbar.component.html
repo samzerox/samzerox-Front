@@ -15,6 +15,11 @@
             <li class="nav-item mr-5">
                 <a class="nav-link" routerLinkActive="active" routerLink="/about">Sobre mi</a>
             </li>
+            <li class="nav-item mr-5" *ngIf="_us.token.length">
+                <a (click)="_us.logout()" routerLink="/home" class="nav-link">
+                    <i class="fa fa-power-off"></i> Logout
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

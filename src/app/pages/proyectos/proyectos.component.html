@@ -11,10 +11,28 @@
         </div>
     </div>
 
+
+    <div class="text-right" *ngIf="_us.token.length">
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#nuevoProyectoModal" data-whatever="@mdo">
+                        <i class="fa fa-plus"></i> Crear Proyecto
+                    </button>
+    </div>
+
+
     <div class="card-columns text-center" *ngIf="!cargando">
 
         <div class="card border-dark animated fadeIn fast" *ngFor="let proyecto of proyectos">
-            <img class="card-img-top img-fluid text-center" [src]="proyecto.imagen | imagen:'portada'" alt="nombre">
+            <div>
+                <button (click)="borrarProyecto(proyecto)" type="button" class="btn btn-outline-danger eliminar mt-1" *ngIf="_us.token.length">
+                    X
+                </button>
+                <button (click)="mostarModal( proyecto._id )" type="button" class="btn btn-outline-dark camara mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
+                    <i class="fas fa-camera"></i>
+                </button>
+                <img class="card-img-top img-fluid text-center" [src]="proyecto.imagen | imagen:'portada'" alt="nombre">
+            </div>
+
+
             <div class="card-block">
                 <h4 class="card-title">{{ proyecto.nombre }}</h4>
                 <p class="card-text">{{ proyecto.descripcion }}</p>
@@ -31,5 +49,42 @@
 
 
 
+    </div>
+</div>
+
+
+
+
+<!-- modal -->
+<div class="modal fade" id="nuevoProyectoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form #f="ngForm" (ngSubmit)="crearProyecto(f)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Titulo:</label>
+                        <input type="text" ngModel name="nombre" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Link:</label>
+                        <input type="text" ngModel name="link" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Descripcion:</label>
+                        <textarea ngModel name="descripcion" class="form-control" id="message-text"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
