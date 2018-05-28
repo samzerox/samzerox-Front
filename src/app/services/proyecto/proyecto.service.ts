@@ -54,7 +54,7 @@ export class ProyectoService {
   }
 
   actualizarProyecto( proyecto: Proyecto, ventana: [string] ) {
-    let url = URL_SERVICIOS + '/proyecto/' + proyecto._id;
+    let url = URL_SERVICIOS + '/agregarVentana/' + proyecto._id;
     url += '?token=' + this._us.token;
 
     proyecto.ventanas = [ventana];

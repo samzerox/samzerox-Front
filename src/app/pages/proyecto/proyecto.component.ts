@@ -1,3 +1,4 @@
+import { log } from 'util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -66,7 +67,6 @@ export class ProyectoComponent implements OnInit {
     }
 
     let ventana = new Ventana(forma.value.titulo, forma.value.descripcion);
-    console.log(ventana);
 
     this._vs.crearVentana( ventana )
                   .subscribe(correcto => {
@@ -74,8 +74,6 @@ export class ProyectoComponent implements OnInit {
                     } );
 
   }
-
-  
 
   actualizarProyecto(proyecto, idVentana) {
 
@@ -101,10 +99,20 @@ export class ProyectoComponent implements OnInit {
       if (borrar) {
         this._vs.borrarVentana( ventana._id)
                   .subscribe( borrado => {
+                    this.eliminarVentana(ventana._id, this.proyecto);
                     this.cargarProyecto();
                   });
       }
     });
+
+  }
+
+  eliminarVentana( idVentana, proyecto: any) {
+
+    this._vs.eliminarVentana( idVentana, proyecto )
+                  .subscribe(correcto => {
+                    this.cargarProyecto();
+                    } );
 
   }
 

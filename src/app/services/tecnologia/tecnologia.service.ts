@@ -22,7 +22,7 @@ export class TecnologiaService {
   }
 
   actualizarTecnologia( idTecnologia: [string], proyecto: Proyecto ) {
-    let url = URL_SERVICIOS + '/proyecto/' + proyecto._id;
+    let url = URL_SERVICIOS + '/agregarTecnologia/' + proyecto._id;
     url += '?token=' + this._us.token;
 
     proyecto.tecnologias = [idTecnologia];
@@ -35,7 +35,7 @@ export class TecnologiaService {
   }
 
   eliminarTecnologia( idTecnologia: [string], proyecto: Proyecto ) {
-    let url = URL_SERVICIOS + '/elemento/' + proyecto._id;
+    let url = URL_SERVICIOS + '/tecnologiaArray/' + proyecto._id;
     url += '?token=' + this._us.token;
 
     proyecto.tecnologias = [idTecnologia];

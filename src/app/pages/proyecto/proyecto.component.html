@@ -61,12 +61,13 @@
             <h2 class="title">{{ventana.titulo}}
                 <span *ngIf="_us.token.length">
                             <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
+                            <!-- <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button> -->
                         </span>
             </h2>
             <div class="row mb-5">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <button (click)="mostarModal( ventana._id )" type="button" class="btn btn-outline-dark camara ml-1 mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
-                                <i class="fas fa-camera"></i>
+                    <i class="fas fa-camera"></i>
                     </button>
                     <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
                         <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">

@@ -9,6 +9,7 @@ import { UsuarioService } from '../usuario/usuario.service';
 import { URL_SERVICIOS } from '../../config/config';
 
 import { Observable } from 'rxjs/Observable';
+import { Proyecto } from '../../models/proyecto.model';
 
 declare var swal: any;
 
@@ -45,6 +46,22 @@ export class VentanaService {
                 return true;
               });
   }
+
+
+  eliminarVentana( idVentana: [string], proyecto: Proyecto ) {
+    let url = URL_SERVICIOS + '/ventanaArray/' + proyecto._id;
+    url += '?token=' + this._us.token;
+
+    proyecto.ventanas = [idVentana];
+
+    return this.http.put(url, proyecto )
+          .map( (resp: any) => {
+            swal('Ventana Eliminada del proyecto: ', proyecto.nombre, 'success');
+            return resp;
+          });
+  }
+
+
 }
 
 
