@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>Tecnologia</th>
+                                <th></th>
                             </tr>
 
 
@@ -36,6 +37,11 @@
 
                                 <td>
                                     {{tecnologia.nombre}}
+                                </td>
+                                <td>
+                                    <a (click)="eliminarTecnologia(tecnologia._id, _modalUploadService.proyecto)" class="dropdown-item text-danger pointer">
+                                        <i class="fas fa-minus-circle"></i>
+                                    </a>
                                 </td>
 
 

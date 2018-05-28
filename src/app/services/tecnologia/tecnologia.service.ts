@@ -34,4 +34,17 @@ export class TecnologiaService {
           });
   }
 
+  eliminarTecnologia( idTecnologia: [string], proyecto: Proyecto ) {
+    let url = URL_SERVICIOS + '/elemento/' + proyecto._id;
+    url += '?token=' + this._us.token;
+
+    proyecto.tecnologias = [idTecnologia];
+
+    return this.http.put(url, proyecto )
+          .map( (resp: any) => {
+            swal('Tecnologia Eliminada del proyecto: ', proyecto.nombre, 'success');
+            return resp;
+          });
+  }
+
 }

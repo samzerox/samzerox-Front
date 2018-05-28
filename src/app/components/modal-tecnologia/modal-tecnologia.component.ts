@@ -25,7 +25,6 @@ export class ModalTecnologiaComponent implements OnInit {
     this._ts.cargarTecnologias()
                 .subscribe( (resp: any) => {
                   this.tecnologias = resp;
-                  console.log(this.tecnologias);
                 });
   }
 
@@ -40,16 +39,23 @@ export class ModalTecnologiaComponent implements OnInit {
 
   agregarTecnologia( idTecnologia, proyecto: Proyecto) {
 
-    console.log(idTecnologia);
-    console.log(proyecto);
-
-
     this._ts.actualizarTecnologia( idTecnologia, proyecto )
                   .subscribe(correcto => {
                     this.cargarProyecto();
                     } );
 
   }
+
+
+  eliminarTecnologia( idTecnologia, proyecto: Proyecto) {
+
+    this._ts.eliminarTecnologia( idTecnologia, proyecto )
+                  .subscribe(correcto => {
+                    this.cargarProyecto();
+                    } );
+
+  }
+
 
   cerrarTecnologias() {
 
