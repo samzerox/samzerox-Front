@@ -58,72 +58,61 @@
 
     <div *ngFor="let ventana of proyecto.ventanas; let i = index">
         <div *ngIf="(i+1)%2==0">
-            <h2 class="title">{{ventana.titulo}}
-                <span *ngIf="_us.token.length">
-                            <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
-                            <!-- <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button> -->
-                        </span>
-            </h2>
-            <div class="row mb-5">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <button (click)="mostarModal( ventana._id )" type="button" class="btn btn-outline-dark camara ml-1 mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
-                    <i class="fas fa-camera"></i>
-                    </button>
-                    <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
-                        <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                    <p>
-                        {{ventana.descripcion}}
-                    </p>
-                </div>
-
-
-            </div>
-            <hr>
-        </div>
-        <div *ngIf="(i+1)%2!=0">
-            <h2 class="title">{{ventana.titulo}}
-                <span *ngIf="_us.token.length">
+            <div class="card">
+                <h3 class="card-header">{{ventana.titulo}} <span *ngIf="_us.token.length">
                     <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
-                </span>
-            </h2>
-            <div class="row">
-                <!-- Desaparece cuando es mas pequeño que sm -->
-                <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
-                    <p>
-                        {{ventana.descripcion}}
-                    </p>
-                </div>
+                </span></h3>
+                <div class="card-body row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <button (click)="mostarModal( ventana._id )" type="button" class="btn btn-outline-dark camara ml-1 mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
+                        <i class="fas fa-camera"></i>
+                        </button>
+                        <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
+                            <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <p class="card-text">{{ventana.descripcion}}</p>
+                    </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <button (click)="mostarModal( ventana._id )" type="button" class="btn btn-outline-dark camara ml-1 mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
-                                <i class="fas fa-camera"></i>
-                            </button>
-                    <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
-                        <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
-                    </a>
                 </div>
-
-                <!-- Aparece cuando es mas pequeño que sm -->
-                <div class="col-sm-6 col-xs-12 d-sm-none">
-                    <p>
-                        {{ventana.descripcion}}
-                    </p>
-                </div>
-
             </div>
-            <hr>
+        </div>
+        <br>
+        <div *ngIf="(i+1)%2!=0">
+            <div class="card">
+                <h3 class="card-header">{{ventana.titulo}} <span *ngIf="_us.token.length">
+                        <button (click)="borrarventana(ventana)" type="button" class="btn btn-outline-danger" *ngIf="_us.token.length">X</button>
+                    </span></h3>
+                <div class="card-body row">
+                    <!-- Desaparece cuando es mas pequeño que sm -->
+                    <div class="col-lg-8 col-md-8 col-sm-6 d-none d-sm-block">
+                        <p>
+                            {{ventana.descripcion}}
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <button (click)="mostarModal( ventana._id )" type="button" class="btn btn-outline-dark camara ml-1 mt-1" data-toggle="modal" data-target="#nuevaImagenModal" data-whatever="@mdo" *ngIf="_us.token.length">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                        <a target="_blank" [href]="ventana.imagen | imagen:'captura'">
+                            <img class="img-fluid img-thumbnail" [src]="ventana.imagen | imagen:'captura'" alt="">
+                        </a>
+                    </div>
+
+                    <!-- Aparece cuando es mas pequeño que sm -->
+                    <div class="col-sm-6 col-xs-12 d-sm-none">
+                        <p>
+                            {{ventana.descripcion}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
 
     </div>
-
-
-
-
-
 
 
 
